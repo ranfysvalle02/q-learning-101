@@ -6,6 +6,19 @@
 
 ---
 
+Think of your brain as a sponge or a flexible roadmap. Each time you practice something new, like drawing a picture, the sponge reshapes, or the roadmap updates with shortcuts. The more you practice, the stronger and clearer the paths become. For a neural network, this reshaping is like updating its "weights" — tiny rules it learns to better understand and make decisions.
+
+### Reinforcement Learning
+Reinforcement learning is like a video game:
+- You, the player, start without knowing much.
+- Every time you do something good (like defeating an enemy or collecting a coin), the game rewards you with points.
+- If you make a mistake (falling into a pit), you get no points or lose points.
+- Over time, you figure out the best ways to play, using rewards to guide you to win more often.
+
+For a computer, the rewards help it adjust its "behavior" step by step. Instead of points, it uses math to update how it decides what to do.
+
+Imagine a kid learning to solve puzzles. Each puzzle piece they try to fit is like an action in RL, and when the piece fits, they get a reward, just like neuroplasticity helps their brain remember which shapes fit where. Over time, the kid gets better and faster at solving puzzles — just like a neural network or reinforcement learning agent gets better at solving tasks.
+
 ## Introduction: Caught in the Same Old Routine?
 
 Have you ever felt stuck in a routine—like you’re floating along in the same “river of thinking,” doing the same things over and over just because they *work*? It’s comfortable to do what you already know—go to the same coffee shop, cook the same meals, watch the same shows. But imagine if you never tried a new restaurant, never tested a different route to work, never explored a new hobby. You’d miss out on so many possibilities!
