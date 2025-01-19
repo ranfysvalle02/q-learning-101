@@ -87,6 +87,8 @@ This repetition refines the knowledge stored in the Q-table (or the duckling’s
 
 ## An Ultra-Simple Q-Learning Maze Example
 
+![](https://pythongeeks.org/wp-content/uploads/2022/03/working-of-reinforcement-learning.webp)
+
 In a minimal coding setup:
 
 1. We define a **maze** (the environment).  
