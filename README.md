@@ -41,6 +41,8 @@ Just like we have instincts and advice from friends or family, an RL agent has *
 3. **Epsilon – Exploration Rate**  
    This is your willingness to break out of your “river of thinking” and try something new. Maybe you try a different coffee shop or a new route home. Sure, it might not always work out—but sometimes, it leads to something amazing.
 
+![](https://miro.medium.com/v2/resize:fit:1400/1*_5dltx4BcI8rRmCK2Sq_kw.png)
+
 ---
 
 ## The Environment (The World Around You)
