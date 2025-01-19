@@ -73,6 +73,8 @@ Ultimately, the agent learns to identify what’s **similar** in different scena
 
 ## Episodes (A Series of Repetitions)
 
+![](https://i.sstatic.net/Bn6MY.gif)
+
 An **episode** is one full run—start at some position, act until you reach the goal or get stuck, then reset.
 
 - **Duckling**: Each day, waking up, searching for food, encountering obstacles, returning to safety. Next day, same process but a little wiser.  
