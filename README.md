@@ -43,6 +43,21 @@ Just like we have instincts and advice from friends or family, an RL agent has *
 
 ![](https://miro.medium.com/v2/resize:fit:1400/1*_5dltx4BcI8rRmCK2Sq_kw.png)
 
+The epsilon-greedy algorithm is a technique used in reinforcement learning to balance exploration and exploitation. 
+
+* **Exploration** involves trying new actions, even if they seem less promising, to discover potentially better options. 
+* **Exploitation** involves consistently choosing the action that has historically yielded the best rewards.
+
+## Epsilon-Greedy
+
+Epsilon-greedy introduces a controlled amount of randomness into the decision-making process. 
+
+* A small probability, called epsilon (ε), is defined. 
+* With probability ε, the algorithm chooses a random action, encouraging exploration. 
+* With probability (1 - ε), the algorithm chooses the action that currently appears to have the highest expected reward, favoring exploitation.
+
+By carefully adjusting the value of epsilon, the algorithm can strike a balance between discovering new opportunities and maximizing immediate rewards. This allows the agent to learn effectively and adapt to changing environments.
+
 ---
 
 ## The Environment (The World Around You)
