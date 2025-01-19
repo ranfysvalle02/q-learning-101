@@ -183,9 +183,9 @@ If you ever feel stuck in life, doing everything the same way simply because it�
 1. **Imprinting & Bias**: We tend to latch onto the first lesson or experience we have. Be mindful of that initial “imprint,” because it can skew how you see future opportunities.  
 2. **Similar vs. Dissimilar**: By exploring, you discover which situations really do mirror past ones—and which are unique enough to justify a new approach.  
 3. **Exploration vs. Exploitation**: Balancing the comfort of what you know with the thrill of the unknown is how you grow—whether you’re a duckling, a coder, or a café-hopper.  
-4. **Rewards**: Be clear about what “success” looks like. In coding, it’s reaching a goal in a maze. In life, maybe it’s finding happiness, health, or a sense of adventure.
+4. **Rewards**: Be clear about what “success” looks like.
 
-So go ahead, **dip your webbed feet into new waters**—step out of your routine, explore, learn from it, and watch your internal Q-table become richer and wiser. After all, life’s greatest discoveries often happen when you steer away from your usual path, letting a bit of “epsilon” guide you toward something new.
+So go ahead, **dip your feet into new waters** — step out of your routine, explore, learn from it, and watch your internal Q-table become richer and wiser. After all, life’s greatest discoveries often happen when you steer away from your usual path, letting a bit of “epsilon” guide you toward something new.
 
 ---
 
