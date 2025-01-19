@@ -1,6 +1,5 @@
-# qloq
+![](https://cdn.hswstatic.com/gif/animal-imprinting-orig.jpg)
 
----
 *Breaking free from life’s “river of thinking” by exploring new paths.*
 
 # Learning to Navigate: A Q-Learning Adventure
