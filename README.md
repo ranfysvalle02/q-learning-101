@@ -4,10 +4,6 @@
 
 ![](https://cdn.hswstatic.com/gif/animal-imprinting-orig.jpg)
 
-When you think of “learning” in our everyday world, you might picture a child learning to ride a bike. They hop on, wobble around, possibly crash (a.k.a. **negative reward**), then get back up and try again. After enough **episodes** (attempts), they finally figure out how to balance and move forward smoothly. This process is not so different from the way **Q-learning** works in **Reinforcement Learning (RL)**. 
-
-In Q-learning, the child riding the bike is your **agent**. The bike, helmet, maybe even the training wheels are the **tools** the agent has. The neighborhood—or the bike park they practice in—is the **environment**. Each time the child gets on the bike is like starting a new **episode**. Over time, the child develops a “mental map” of what actions lead to success and which lead to face-planting in the bushes. That mental map is analogous to our **Q-table**.
-
 ---
 
 ## Introduction: Caught in the Same Old Routine?
