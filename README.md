@@ -100,6 +100,81 @@ Just as the duckling grows from clumsy waddles to smooth swimming, the Q-learnin
 
 ---
 
+### The Code Walkthrough
+
+If you’ve ever watched a duckling swim across a pond, you know how quick they are to learn what works and what doesn’t. One day, they might discover where the tasty treats lie, the next they’re charting new courses to get there faster. In **Reinforcement Learning (RL)**, we strive to replicate this kind of trial-and-error learning in a computational way.
+
+Below is a high-level view of the main components in `demo.py`:
+
+1. **Environment Setup**  
+   - A NumPy array `POND` specifies the layout (rocks, water, and treat).
+   - A starting position `START_POS` is defined.
+
+2. **Possible Actions**  
+   - We encode the actions as numeric keys (0=up, 1=right, 2=down, 3=left).
+   - We map each action to row/column changes like `(-1, 0)` for up or `(0, 1)` for right.
+
+3. **Helper Functions**  
+   - `is_valid_position(pos)`: Checks if the new position is within the grid and not a rock.  
+   - `get_next_position(current_pos, action)`: Calculates the duckling’s next position. If invalid, it stays put.  
+   - `get_reward(pos)`: Returns +10 if the duckling reaches the treat, otherwise -0.1.  
+   - `is_goal(pos)`: Checks if the duckling is on the cell with the tasty treat.
+
+4. **Q-Table Initialization**  
+   - We maintain a dictionary `Q_table` keyed by `(row, col)`, where each value is a list of Q-values for each action.  
+   - If a state doesn’t exist in `Q_table` yet, we initialize it with `[0.0, 0.0, 0.0, 0.0]`.
+
+5. **Training Loop**  
+   - We run the Q-learning for `NUM_EPISODES` episodes, each with a maximum number of steps.  
+   - For each step:
+     1. **Epsilon-Greedy Action Selection**:  
+        - With probability `EPSILON`, choose a random action.  
+        - Otherwise, choose the action with the highest Q-value.
+     2. **State Transition**:  
+        - Calculate `next_pos` and determine `reward`.
+     3. **Q-value Update**:  
+        - Update the Q-values using the Q-learning rule.
+     4. **Check Goal**:  
+        - If the duckling reaches the treat, end the episode.
+
+6. **Epsilon Decay (Optional)**  
+   - After each episode, `EPSILON` is slightly reduced so that the duckling explores less over time.
+
+7. **Demonstration**  
+   - Finally, the script shows a “greedy” run, where the duckling always picks the best-known action from the learned Q-table.  
+   - It prints the path taken in this demonstration.
+
+### The Pond Environment
+
+The environment is a 2D grid where each cell represents one part of the pond:
+
+```
+  Row\Col   0    1    2    3    4
+      0    [0,   1,   1,   1,   1]
+      1    [1,   1,   0,   1,   9]
+      2    [1,   0,   1,   1,   1]
+      3    [1,   1,   1,   1,   1]
+```
+
+In this grid:
+- `0` represents a **rock** (impassable; the duckling cannot swim there).
+- `1` represents **water** (the duckling can swim freely).
+- `9` represents the **tasty treat** (the goal).
+
+Our duckling starts at position `(0,1)`—it’s in water, so it’s safe. The duckling can move **up, right, down**, or **left**, and we use an **epsilon-greedy** strategy to decide whether to explore or exploit.
+
+---
+
+### Observing the Duckling’s Learning
+During training, you’ll see console output indicating whether the duckling is *exploring* or *exploiting*, which action it takes, and eventually celebrating when it finds the treat. Over multiple episodes, the duckling refines its internal Q-values, leading to a more direct route to the treat.
+
+---
+
+### Why This Matters
+This little example—though simplistic—beautifully illustrates how **trial-and-error** plus **incremental updates** help an agent learn an optimal or near-optimal strategy. Many real-world problems, from robot navigation to game-playing AI, can be tackled with the same underlying Q-learning concepts.
+
+---
+
 ## Final Thoughts: Break Free From Your River of Thinking
 
 If you ever feel stuck in life, doing everything the same way simply because it’s comfortable, remember **epsilon**—that little spark of curiosity prompting you to see what else is out there. Learning happens when we challenge our biases and update our internal “map” of the world.
