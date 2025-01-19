@@ -102,7 +102,7 @@ This repetition refines the knowledge stored in the Q-table (or the duckling’s
 
 ## An Ultra-Simple Q-Learning Maze Example
 
-![](https://pythongeeks.org/wp-content/uploads/2022/03/working-of-reinforcement-learning.webp)
+![](https://media.geeksforgeeks.org/wp-content/uploads/20210914210519/env21-660x409.png)
 
 In a minimal coding setup:
 
