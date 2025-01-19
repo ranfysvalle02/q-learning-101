@@ -6,17 +6,6 @@
 
 ---
 
-Think of your brain as a sponge or a flexible roadmap. Each time you practice something new, like drawing a picture, the sponge reshapes, or the roadmap updates with shortcuts. The more you practice, the stronger and clearer the paths become. For a neural network, this reshaping is like updating its "weights" — tiny rules it learns to better understand and make decisions.
-
-### Reinforcement Learning
-Reinforcement learning is like a video game:
-- You, the player, start without knowing much.
-- Every time you do something good (like defeating an enemy or collecting a coin), the game rewards you with points.
-- If you make a mistake (falling into a pit), you get no points or lose points.
-- Over time, you figure out the best ways to play, using rewards to guide you to win more often.
-
-For a computer, the rewards help it adjust its "behavior" step by step. Instead of points, it uses math to update how it decides what to do.
-
 ## Introduction: Caught in the Same Old Routine?
 
 Have you ever felt stuck in a routine—like you’re floating along in the same “river of thinking,” doing the same things over and over just because they *work*? It’s comfortable to do what you already know—go to the same coffee shop, cook the same meals, watch the same shows. But imagine if you never tried a new restaurant, never tested a different route to work, never explored a new hobby. You’d miss out on so many possibilities!
@@ -24,6 +13,18 @@ Have you ever felt stuck in a routine—like you’re floating along in the same
 This is where **epsilon** (in Q-learning) comes in. Think of it as the little voice nudging you to step out of your comfort zone every once in a while. You might discover a fantastic café on the next block—or you might find out it’s closed. Either way, you learn something new.
 
 **Reinforcement Learning (RL)**, and specifically **Q-learning**, mimics this balancing act between “sticking to what we know” (exploitation) and “trying out fresh ideas” (exploration). In the story below, we’ll see how ducklings, children on bikes, and a simple coding agent in a maze all share this pattern of learning: exploring the world, dealing with rewards or penalties, and gradually building a mental map of what works.
+
+Think of your brain as a sponge or a flexible roadmap. Each time you practice something new, like drawing a picture, the sponge reshapes, or the roadmap updates with shortcuts. The more you practice, the stronger and clearer the paths become. For a neural network, this reshaping is like updating its "weights" — tiny rules it learns to better understand and make decisions.
+
+### Reinforcement Learning
+
+Reinforcement learning is like a video game:
+- You, the player, start without knowing much.
+- Every time you do something good (like defeating an enemy or collecting a coin), the game rewards you with points.
+- If you make a mistake (falling into a pit), you get no points or lose points.
+- Over time, you figure out the best ways to play, using rewards to guide you to win more often.
+
+For a computer, the rewards help it adjust its "behavior" step by step. Instead of points, it uses math to update how it decides what to do.
 
 ---
 
