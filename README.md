@@ -188,3 +188,224 @@ So go ahead, **dip your webbed feet into new waters**—step out of your routine
 
 ---
 
+# FULL CODE
+
+```python
+#!/usr/bin/env python3
+"""
+demo.py
+
+A fun Q-learning demo featuring our curious "duckling" navigating a simple pond
+environment. The duckling learns through trial and error, balancing exploration
+and exploitation to find a 'tasty treat' in the grid.
+
+"""
+
+import numpy as np
+import random
+
+# -----------------------------------------------------------------------------
+# POND DEFINITION
+# -----------------------------------------------------------------------------
+# We'll represent the pond as a 2D grid:
+#   0 = Rock (impassable; can't swim through)
+#   1 = Water (free to swim)
+#   9 = Tasty treat (goal)
+#
+# The duckling starts at (0,1) and tries to reach the cell with '9'.
+#
+#   Row\Col  0   1   2   3   4
+#       0   [0,  1,  1,  1,  1]
+#       1   [1,  1,  0,  1,  9]
+#       2   [1,  0,  1,  1,  1]
+#       3   [1,  1,  1,  1,  1]
+#
+# The duckling can't move into '0' cells. The '9' cell is the special goal.
+# -----------------------------------------------------------------------------
+
+POND = np.array([
+    [0, 1, 1, 1, 1],
+    [1, 1, 0, 1, 9],
+    [1, 0, 1, 1, 1],
+    [1, 1, 1, 1, 1]
+])
+
+# Starting position for our duckling (row, col).
+START_POS = (0, 1)  # This is water, so the duckling can start here safely.
+
+# Define possible actions: up, right, down, left.
+# We'll map each action to a delta (row_change, col_change).
+ACTIONS = {
+    0: (-1, 0),  # Up
+    1: (0, +1),  # Right
+    2: (+1, 0),  # Down
+    3: (0, -1)   # Left
+}
+
+# -----------------------------------------------------------------------------
+# HYPERPARAMETERS (Learn Rate, Discount Factor, Exploration Rate)
+# -----------------------------------------------------------------------------
+ALPHA = 0.1       # Learning rate (0 < ALPHA <= 1)
+GAMMA = 0.9       # Discount factor (0 <= GAMMA <= 1)
+EPSILON = 0.3     # Initial exploration rate (0 <= EPSILON <= 1)
+
+NUM_EPISODES = 50           # How many times the duckling tries (episodes)
+MAX_STEPS_PER_EPISODE = 50  # Max steps per episode to prevent endless loops
+
+# -----------------------------------------------------------------------------
+# UTILITY FUNCTIONS
+# -----------------------------------------------------------------------------
+def is_valid_position(pos):
+    """
+    Check if a position in the pond is valid for swimming (not out of bounds
+    and not a rock).
+    """
+    r, c = pos
+    # Check if (r, c) is inside the pond array.
+    if (0 <= r < POND.shape[0]) and (0 <= c < POND.shape[1]):
+        # Ensure it's not a rock (0).
+        return POND[r, c] != 0
+    return False
+
+def get_next_position(current_pos, action):
+    """
+    Given the current position (row, col) and an action (0,1,2,3),
+    compute the next position. If it's invalid or blocked, stay put.
+    """
+    dr, dc = ACTIONS[action]
+    new_pos = (current_pos[0] + dr, current_pos[1] + dc)
+    
+    # If the new position is invalid, we don't move.
+    if not is_valid_position(new_pos):
+        return current_pos
+    return new_pos
+
+def get_reward(pos):
+    """
+    Define the reward for swimming into a particular position.
+    - If position has '9' (tasty treat), +10
+    - Otherwise, small negative reward (-0.1) to encourage efficient paths
+    """
+    r, c = pos
+    if POND[r, c] == 9:
+        return 10.0
+    else:
+        return -0.1
+
+def is_goal(pos):
+    """
+    Check if the current position is the 'tasty treat' goal.
+    """
+    r, c = pos
+    return POND[r, c] == 9
+
+# -----------------------------------------------------------------------------
+# MAIN Q-LEARNING LOGIC
+# -----------------------------------------------------------------------------
+def main():
+    # We'll store the duckling's Q-values in a dictionary:
+    #   Q_table[(row, col)] = [Q_up, Q_right, Q_down, Q_left]
+    # If a position hasn't been encountered yet, it will be initialized later.
+    Q_table = {}
+
+    def get_Q_values(state):
+        """
+        Retrieve Q-values for all actions from 'Q_table'. If the state (row,col)
+        isn't in the table, initialize it with 0.0 for each possible action.
+        """
+        if state not in Q_table:
+            Q_table[state] = [0.0, 0.0, 0.0, 0.0]  # Up, Right, Down, Left
+        return Q_table[state]
+
+    global EPSILON  # We'll modify EPSILON over time (optional decay).
+
+    # -------------------------------
+    # TRAINING LOOP
+    # -------------------------------
+    for episode in range(NUM_EPISODES):
+        # Start each episode at the initial position (our duckling's start).
+        current_pos = START_POS
+
+        print(f"\n=== EPISODE {episode+1}/{NUM_EPISODES} ===")
+        print("Duckling wakes up, stretches its wings, and prepares to explore...")
+
+        for step in range(MAX_STEPS_PER_EPISODE):
+            # 1. Observe the current state (position).
+            state = current_pos
+
+            # 2. Choose an action using epsilon-greedy strategy.
+            if random.random() < EPSILON:
+                # Explore (pick a random action).
+                action = random.choice(list(ACTIONS.keys()))
+                print(f"[Exploring] Duckling tries action {action}")
+            else:
+                # Exploit (pick best known action from Q-table).
+                q_values = get_Q_values(state)
+                action = int(np.argmax(q_values))
+                print(f"[Exploiting] Duckling chooses action {action} with Q-values {q_values}")
+
+            # 3. Perform the action to get the next position.
+            next_pos = get_next_position(current_pos, action)
+
+            # 4. Get a reward for moving into 'next_pos'.
+            reward = get_reward(next_pos)
+
+            # 5. Update Q-values (Q-learning update).
+            old_q_values = get_Q_values(state)      # Q-values for the current state
+            old_q = old_q_values[action]            # Q-value for the chosen action
+            next_q_values = get_Q_values(next_pos)  # Q-values for the next state
+            max_next_q = max(next_q_values)         # Best future Q-value
+
+            # Q-learning formula:
+            # Q_new = Q_old + ALPHA * (reward + GAMMA * max_next_q - Q_old)
+            new_q = old_q + ALPHA * (reward + GAMMA * max_next_q - old_q)
+            old_q_values[action] = new_q  # Update the Q-table
+
+            # 6. Move the duckling to the next position.
+            current_pos = next_pos
+
+            # Check if we've reached the goal (the tasty treat).
+            if is_goal(current_pos):
+                print(">>> Hooray! The duckling found the TASTY TREAT!")
+                break  # End this episode early if goal is reached.
+
+        # (Optional) Decay epsilon so that the duckling explores less over time.
+        EPSILON_decay = 0.99
+        EPSILON *= EPSILON_decay
+
+    # -------------------------------
+    # DEMONSTRATION
+    # -------------------------------
+    print("\n=== DEMONSTRATION: Duckling uses its learned Q-table to find the treat! ===")
+
+    # We'll do one final run in "greedy" mode (no random exploration).
+    demo_pos = START_POS
+    path_taken = [demo_pos]
+    steps = 0
+
+    while not is_goal(demo_pos) and steps < MAX_STEPS_PER_EPISODE:
+        q_vals = get_Q_values(demo_pos)
+        best_action = int(np.argmax(q_vals))  # Choose the best action from Q-table
+        demo_pos = get_next_position(demo_pos, best_action)
+        path_taken.append(demo_pos)
+        steps += 1
+
+    # Print out the final path our duckling takes.
+    if is_goal(demo_pos):
+        print("Quack! The duckling successfully reached the TASTY TREAT.")
+        print("Path taken (row, col):")
+        for p in path_taken:
+            print(p)
+    else:
+        print("The duckling couldn't reach the goal in the demonstration.")
+        print("Path taken (row, col):")
+        for p in path_taken:
+            print(p)
+
+# -----------------------------------------------------------------------------
+# Run the script
+# -----------------------------------------------------------------------------
+if __name__ == "__main__":
+    main()
+
+```
