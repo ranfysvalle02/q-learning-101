@@ -37,13 +37,13 @@ All these “agents” have one key thing in common: they learn through trial an
 
 Just like we have instincts and advice from friends or family, an RL agent has **hyperparameters** that shape how it learns:
 
-1. **Alpha (\(\alpha\)) – Learning Rate**  
+1. **Alpha – Learning Rate**  
    Think of it as how fast you absorb new information. Too high, and you overreact to every outcome; too low, and you might ignore valuable lessons.
 
-2. **Gamma (\(\gamma\)) – Discount Factor**  
-   This decides whether you’re focused on the short term or the long haul. A high \(\gamma\) values future rewards (like the duckling learning to find a big pond later), while a low \(\gamma\) chases tiny, quick wins.
+2. **Gamma – Discount Factor**  
+   This decides whether you’re focused on the short term or the long haul. A high gamma values future rewards (like the duckling learning to find a big pond later), while a low gamma chases tiny, quick wins.
 
-3. **Epsilon (\(\epsilon\)) – Exploration Rate**  
+3. **Epsilon – Exploration Rate**  
    This is your willingness to break out of your “river of thinking” and try something new. Maybe you try a different coffee shop or a new route home. Sure, it might not always work out—but sometimes, it leads to something amazing.
 
 ---
@@ -65,7 +65,7 @@ Just as a duckling learns which parts of the pond are safe, our agent learns whi
 **Q-Learning** is an iterative process:
 
 1. **Observe**: The agent sees what’s around (like a duckling spotting food or danger).  
-2. **Decide**: Based on its Q-table and \(\epsilon\)-greedy strategy, it chooses to either exploit what it knows or explore something new.  
+2. **Decide**: Based on its Q-table and epsilon-greedy strategy, it chooses to either exploit what it knows or explore something new.  
 3. **Experience**: It gets a **reward** (or penalty) for what just happened.  
 4. **Update**: The agent revises its Q-table—akin to the duckling updating its “mental map”: “this area is safe,” or “that direction leads to trouble.”  
 5. **Repeat**: Over many tries (episodes), the agent’s decisions get better and more informed.
@@ -92,7 +92,7 @@ In a minimal coding setup:
 
 1. We define a **maze** (the environment).  
 2. We initialize a **Q-table** (the agent’s memory).  
-3. We set our **hyperparameters** (\(\alpha, \gamma, \epsilon\)).  
+3. We set our **hyperparameters** (alpha, gamma, epsilon).  
 4. Through **episodes**, the agent explores, collects rewards, and updates its Q-table.  
 5. After many trials, it reliably finds the goal.
 
