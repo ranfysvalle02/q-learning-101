@@ -1,8 +1,8 @@
-![](https://cdn.hswstatic.com/gif/animal-imprinting-orig.jpg)
+# Learning to Navigate: A Q-Learning Adventure
 
 *Breaking free from life’s “river of thinking” by exploring new paths.*
 
-# Learning to Navigate: A Q-Learning Adventure
+![](https://cdn.hswstatic.com/gif/animal-imprinting-orig.jpg)
 
 When you think of “learning” in our everyday world, you might picture a child learning to ride a bike. They hop on, wobble around, possibly crash (a.k.a. **negative reward**), then get back up and try again. After enough **episodes** (attempts), they finally figure out how to balance and move forward smoothly. This process is not so different from the way **Q-learning** works in **Reinforcement Learning (RL)**. 
 
