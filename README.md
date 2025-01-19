@@ -73,7 +73,7 @@ Ultimately, the agent learns to identify what’s **similar** in different scena
 
 ## Episodes (A Series of Repetitions)
 
-![](https://i.sstatic.net/Bn6MY.gif)
+![](https://easyai.tech/wp-content/uploads/2022/08/8775b-2019-03-11-123643.jpg)
 
 An **episode** is one full run—start at some position, act until you reach the goal or get stuck, then reset.
 
