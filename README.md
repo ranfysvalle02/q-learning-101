@@ -1,6 +1,6 @@
 # Learning to Navigate: A Q-Learning Adventure
 
-*Breaking free from life’s “river of thinking” by exploring new paths.*
+*Breaking free from your “river of thinking” by exploring new paths.*
 
 ![](https://cdn.hswstatic.com/gif/animal-imprinting-orig.jpg)
 
