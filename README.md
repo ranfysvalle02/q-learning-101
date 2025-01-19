@@ -28,7 +28,7 @@ For a computer, the rewards help it adjust its "behavior" step by step. Instead 
 
 ---
 
-## The Agent (Our Curious Duckling)
+## The "Agent" 
 
 In Q-learning, the **agent** is the decision-maker or learner.  
 
