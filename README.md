@@ -27,7 +27,7 @@ In Q-learning, the **agent** is the decision-maker or learner.
 
 - **Duckling Version**: A freshly hatched duckling that follows its mother, learns to avoid predators, and searches for food.  
 - **Child-on-a-Bike Version**: A child who’s wobbling around, sometimes falling, sometimes zooming happily forward.  
-- **In Our Code**: A small program figuring out how to move **up**, **down**, **left**, or **right** in a grid.
+- **In Our Code**: A small program figuring out how to move **up**, **down**, **left**, or **right** in a grid in order to achieve a goal.
 
 All these “agents” have one key thing in common: they learn through trial and error, storing knowledge in a **Q-table** (or “mental map”) that tells them which actions are good and which to avoid.
 
